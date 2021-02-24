@@ -1,0 +1,6 @@
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/CMakeFiles/rebuild_cache.dir
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/CMakeFiles/edit_cache.dir
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/CMakeFiles/tarea1.ii.3.dir
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/vector/CMakeFiles/rebuild_cache.dir
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/vector/CMakeFiles/edit_cache.dir
+/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/vector/CMakeFiles/vector.dir

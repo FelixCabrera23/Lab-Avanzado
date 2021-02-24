@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/tarea1.ii.3.dir/tarea1ii2_class03_R3.cpp.o CMakeFiles/tarea1.ii.3.dir/src/VecR2.cpp.o  -o tarea1.ii.3  -Wl,-rpath,"/home/walberto/Documents/Lab Avanzado/Tarea 3/Tarea_1.ii.3/Build_T_1.ii.3/vector" vector/libvector.so 

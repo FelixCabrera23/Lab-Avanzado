@@ -1,0 +1,16 @@
+Soy el constructor SIN argumentos
+Soy el constructor CON argumento
+Van 2 instancias de simple
+Van 2 instancias de simple
+Soy el constructor CON argumento
+Van 3 instancias de simple
+La frase es: No hay
+La frase es: Hoy no es viernes
+La frase es: Voy de ultimo
+Mi ID es:1
+Mi ID es:2
+Mi ID es:3
+Soy el destructor
+Van 2 instancias de simple
+Soy el destructor
+Soy el destructor

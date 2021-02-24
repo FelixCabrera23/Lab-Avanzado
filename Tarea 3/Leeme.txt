@@ -1,0 +1,3 @@
+Cree en cada carpeta una carpeta con el build de cada parte de la tarea.
+En la ultima parte, 1.ii.3, la hice más complicada de lo que tocaba pero queria probar como hacerle
+para tener include y src propios y aparte importar una libreria.

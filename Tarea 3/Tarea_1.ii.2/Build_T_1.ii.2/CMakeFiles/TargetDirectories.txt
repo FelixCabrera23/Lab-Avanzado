@@ -1,0 +1,3 @@
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/Build_T_1.ii.2/CMakeFiles/rebuild_cache.dir
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/Build_T_1.ii.2/CMakeFiles/edit_cache.dir
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/Build_T_1.ii.2/CMakeFiles/tarea1.ii.2.dir
