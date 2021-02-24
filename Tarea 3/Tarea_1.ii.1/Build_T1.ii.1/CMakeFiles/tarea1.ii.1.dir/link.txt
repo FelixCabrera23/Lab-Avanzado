@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/tarea1.ii.1.dir/tarea1ii1_class01.cpp.o CMakeFiles/tarea1.ii.1.dir/tarea1ii1_simple.cpp.o  -o tarea1.ii.1 

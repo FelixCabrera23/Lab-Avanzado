@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/T_1.ii.2/include/tarea1ii1_persona.hpp
+string
+-
+vector
+-
+ctime
+-
+
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/T_1.ii.2/src/tarea1ii1_persona.cpp
+iostream
+-
+tarea1ii1_persona.hpp
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/T_1.ii.2/src/tarea1ii1_persona.hpp
+
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/T_1.ii.2/tarea1ii1_class02.cpp
+cstdlib
+-
+iostream
+-
+tarea1ii1_persona.hpp
+/home/walberto/Documentos/Lab Avanzado/Tarea 3/Tarea_1.ii.2/T_1.ii.2/tarea1ii1_persona.hpp
+
