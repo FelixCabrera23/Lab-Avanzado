@@ -65,8 +65,12 @@ int main(int argc, char* argv[])
 
     std::vector<int> * Double_pls_list = new std::vector<int>;    // Lista de pulsos dobles
 
-    /* Hacemos un ciclo para cada dato */
 
+    std::cout << "\n Procesing Data... " << std::endl;
+    std::cout << "Trigger used to get double pulses: " << tl_i << std::endl;
+
+
+    /* Hacemos un ciclo para cada dato */
     for( int i = 0; i < pc_i; i++){
         pulseData_v = mi_archivo.GetPulse(i); // Va tomando los datos de cad pulso
         event = 1;  // Ponemos 0 eventos
@@ -104,7 +108,7 @@ int main(int argc, char* argv[])
         }
 
     std::cout << "Total double pulses " << Double_pls_list->size() << std::endl;
-    std::cout << "Trigger used to get double pulses: " << tl_i << std::endl;
+
 
     /***** HISTOGRAMA ******/
 
