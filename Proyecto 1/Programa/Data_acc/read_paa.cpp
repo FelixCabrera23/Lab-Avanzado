@@ -80,8 +80,8 @@ int main(int argc, char* argv[])
         /* Este ciclo quita el primer pulso para que solo detectemos el segundo */
         for(int j = 5; j < pulseData_v->size(); j++){
             int temp1;
-            temp1 = pulseData_v[0][j];
-            if (temp1 > tl_i){
+            temp1 = pulseData_v->at(j); // at(j) == [0][j]
+            if (temp1 > -75){
                 low = j;
                 break;
                 }
@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
         if(event == 2){
             Double_pls_list->push_back(i);
-            // std::cout << i << '\n';
+            std::cout << i << " "<< low << " "<< t <<std::endl;
             Doble = true;
           }
         }
@@ -112,7 +112,7 @@ int main(int argc, char* argv[])
 
     /***** HISTOGRAMA ******/
 
-    TH1D *aHist = new TH1D("Datos","Tiempo de decaimiento del muon",20,0,0);
+    TH1D *aHist = new TH1D("Datos","Tiempo de decaimiento del muon",20,0,8500);
 
     for(int i= 0; i < pulseData_t->size(); i++){
         aHist->Fill(pulseData_t->at(i));

@@ -1,0 +1,3 @@
+/home/walberto/github/Lab-Avanzado/Proyecto 1/Programa/Data_acc/Build/CMakeFiles/rebuild_cache.dir
+/home/walberto/github/Lab-Avanzado/Proyecto 1/Programa/Data_acc/Build/CMakeFiles/edit_cache.dir
+/home/walberto/github/Lab-Avanzado/Proyecto 1/Programa/Data_acc/Build/CMakeFiles/paa_reader.dir

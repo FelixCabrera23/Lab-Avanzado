@@ -1,4 +1,4 @@
-/*
+ /*
  * ajustes.C: Muestra como llenar un histograma
  * con números aleatorios generados a partir
  * de una función definida y luego hacer un ajuste
