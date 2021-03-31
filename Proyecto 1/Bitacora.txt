@@ -50,3 +50,17 @@ Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
 
 Luego se hace un fit dentro
 se debe de definir la función
+
+15 marzo 2021
+
+Se cambio la función que registra los pulsos dobles para evitar los PULSOS
+que se mezclaban al principio de los datos
+
+
+22 marzo 2021
+
+Proyecto 2
+
+Para abrir archivos
+
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Jul16.root

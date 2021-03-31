@@ -81,7 +81,8 @@ int main(int argc, char* argv[])
         for(int j = 5; j < pulseData_v->size(); j++){
             int temp1;
             temp1 = pulseData_v->at(j); // at(j) == [0][j]
-            if (temp1 > -75){
+            // if (temp1 > -75){ // Este es con el primer th fijo a -
+            if (temp1 > tl_i){ // este es con el primer th = tl_i
                 low = j;
                 break;
                 }
