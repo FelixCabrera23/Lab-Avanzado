@@ -64,3 +64,7 @@ Proyecto 2
 Para abrir archivos
 
 ./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Jul16.root
+
+5 abril 2021
+
+Creando modificación para detectar 2 PULSOS

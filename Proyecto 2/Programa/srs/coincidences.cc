@@ -1,13 +1,17 @@
 /*
  * coincidences.cc: Codigo para encontrar coincidencias en los datos
  * provenientes de las placas centelladoras de Escaramujo.
- * 
+ *
  * Héctor Pérez
  * Marzo 2021
- * 
- * Basado en el código de Federico Izraelevich (2015) 
+ *
+ * Basado en el código de Federico Izraelevich (2015)
  * para procesar datos de Escaramujo.
- * 
+ *
+ *************************************************
+ *    MODIFICACIÓN PARA DETECTAR DECAIMIENTOS    *
+ *************************************************
+ *
  */
 
 #include <string>
@@ -58,7 +62,7 @@ int main(int argc,char *argv[]) {
 
 
   std::cout << "brances activated..\n";
-  
+
   /* Variables para cargar los datos del archivo
    *
    * TSDateData: Cadena de caracteres que aloja la fecha de captura de datos */
@@ -66,16 +70,16 @@ int main(int argc,char *argv[]) {
   /* TSTimeData: Cadena de caracteres que aloja la hora de captura de datos
    * con presición de segundos */
 	char TSTimeData[7];
-  /* TSNsData: Entero que indica los nanosegundos transcurridos desde 
+  /* TSNsData: Entero que indica los nanosegundos transcurridos desde
    * TSTimeData hasta el inicio del evento capturado */
 	uint32_t TSNsData;
 
-  /* RE<ch>: Vectores que contienen los tiempos en los cuales el voltaje 
+  /* RE<ch>: Vectores que contienen los tiempos en los cuales el voltaje
    * de la señal de los pulsos excedieron el umbral predefinido para el canal ch.
    * Los tiempos son los nanosegundos que transcurrieron desde TSNsData.
-   * 
+   *
    * FE<ch>: Vectores que contienen los tiempos en los cuales el voltaje
-   * de la señal de los pulsos dejaron de exceder el umbral predefinido 
+   * de la señal de los pulsos dejaron de exceder el umbral predefinido
    * para el canal ch. Tambien están medidos en nanosegundos desde
    * TSNsData. */
   std::vector<float> *RE0 = 0;
@@ -92,20 +96,20 @@ int main(int argc,char *argv[]) {
   dataTree->SetBranchAddress("TSTime",TSTimeData);
   dataTree->SetBranchAddress("TSNs",&TSNsData);
   dataTree->SetBranchAddress("RE0",&RE0);
-  dataTree->SetBranchAddress("FE0",&FE0);  
+  dataTree->SetBranchAddress("FE0",&FE0);
   dataTree->SetBranchAddress("RE1",&RE1);
-  dataTree->SetBranchAddress("FE1",&FE1);  
+  dataTree->SetBranchAddress("FE1",&FE1);
   dataTree->SetBranchAddress("RE2",&RE2);
-  dataTree->SetBranchAddress("FE2",&FE2);  
+  dataTree->SetBranchAddress("FE2",&FE2);
   dataTree->SetBranchAddress("RE3",&RE3);
-  dataTree->SetBranchAddress("FE3",&FE3);  
-  
-  
+  dataTree->SetBranchAddress("FE3",&FE3);
+
+
   std::cout << "brances asociated..\n";
-      
+
   /* Variables para determinar las coincidencias */
 
-  /* kllCutCoin: límite inferior de coincidencias. No se toman en 
+  /* kllCutCoin: límite inferior de coincidencias. No se toman en
    * cuenta pulsos cuya separación sea menor que este valor temporal
    * en nanosegundos. */
   int kllCutCoin = 2;
@@ -113,14 +117,14 @@ int main(int argc,char *argv[]) {
    * están separados mas de este tiempo, no se consideran coincidencias.
    * (valor en nanosegundos) */
   int kulCutCoin = 4;
-  
+
   /* Variables para conteo de coincidencias
    *
    * El canal 0 (ch0) se asocia con la placa A
    * El canal 1 (ch1) se asocia con la placa B
    * El canal 2 (ch2) se asocia con la placa C
    * el canal 3 (ch3) no esta físicamente conectado a ninguna placa
-   * 
+   *
    * Las variables *_Tcounter llevan el conteo total de coincidencias */
   int AnC_Tcounter = 0;
   int AnB_Tcounter = 0;
@@ -135,17 +139,29 @@ int main(int argc,char *argv[]) {
   int nic_counter = 0;
   /* La variable boleana coincidence sirve para marcar los eventos que contienen
    * coincidencias */
+
   bool coincidence = false;
+  /************************************/
+  /* Variables para la modificación */
+  bool coincidenceAC = false; // coincidencias en A y C
+  bool coincidenceACB = false; // coincidencias en A, B y C
+
+  int candidatos = 0;
+  int candidatos_Tcount = 0;
+
+  /**************************************/
 
   /* Se obtiene el número de eventos en el archivo .root */
   int n_events = (int) dataTree->GetEntries();
 
   std::cout << n_events << " events found\n";
 
+  std::cout << "Analising ... \n";
+
   /* Se inicia el ciclo para leer los eventos del archivo */
   for(int i=0; i<n_events; i++)
   {
-    
+
     /* Se cargan los datos del i-ésimo evento*/
     dataTree->GetEntry(i);
 
@@ -154,17 +170,26 @@ int main(int argc,char *argv[]) {
     AnC_counter = 0;
     BnC_counter = 0;
     AnBnC_counter = 0;
-    
+
     coincidence = false;
 
-    /* Coincidencias entre las placas A y C (canales 0 y 2) 
-     * 
-     * Primero se dertemina que existan pulsos en los canales 
+    /********************************/
+    // Seteamos las variables a falso
+    coincidenceAC = false;
+    coincidenceACB = false;
+
+    candidatos = 0;
+
+    /***************************************/
+
+    /* Coincidencias entre las placas A y C (canales 0 y 2)
+     *
+     * Primero se dertemina que existan pulsos en los canales
      * correspondientes. Para ello se verifica que el tamaño de
      * los vectores asociados a los canales 0 y 2 sea mayor a 0. */
     if((RE0->size() > 0) && (RE2->size() > 0)) // 0 y 2
     {
-      /* Si existen pulsos en estos canales, se mide la diferencia de 
+      /* Si existen pulsos en estos canales, se mide la diferencia de
        * tiempo en el primer pulso que llega a cada canal. Luego se
        * verifica que esta diferencia de tiempo sea mayor o igual a
        * kllCutCoin y menor que kulCutCoin */
@@ -173,12 +198,12 @@ int main(int argc,char *argv[]) {
         /* Si se cumple esta condición entonces se cuenta la coincidencia
          * entre estas placas */
         AnC_counter++;
-        coincidence = true;
+        coincidenceAC = true;
       }
     }
 
     /* Se repite el procedimiento para las demas placas */
-    
+
     if((RE0->size() > 0) && (RE1->size() > 0)) // 0 y 1
     {
       if(( fabs(RE0->at(0)-RE1->at(0)) >= kllCutCoin ) &  ( fabs(RE0->at(0)-RE1->at(0)) <= kulCutCoin ))
@@ -187,7 +212,7 @@ int main(int argc,char *argv[]) {
         coincidence = true;
       }
     }
-    
+
     if((RE1->size() > 0) && (RE2->size() > 0)) // 1 y 2
     {
       if(( fabs(RE1->at(0)-RE2->at(0)) >= kllCutCoin ) &  ( fabs(RE1->at(0)-RE2->at(0)) <= kulCutCoin ))
@@ -204,6 +229,7 @@ int main(int argc,char *argv[]) {
         if(( fabs(RE0->at(0)-RE2->at(0)) >= kllCutCoin ) &  ( fabs(RE0->at(0)-RE2->at(0)) <= kulCutCoin ))
         {
           AnBnC_counter++;
+          coincidenceACB = true; // checamos si las 3 placas tienen coincidencia
         }
       }
     }
@@ -220,8 +246,20 @@ int main(int argc,char *argv[]) {
     AnC_Tcounter += AnC_counter;
     BnC_Tcounter += BnC_counter;
     AnBnC_Tcounter += AnBnC_counter;
-    
-  }
+
+    /*************************************************************/
+    // si hay coicindencia en A y C pero no en B entonces
+    if (coincidenceAC && !coincidenceACB){
+
+      candidatos++;
+
+    }
+
+    candidatos_Tcount += candidatos;
+
+    /*************************************************************/
+
+  } // aqui termina el for que cicla los eventos
 
   /* Se muestran los resultados */
   std::cout<< "Total coincidendes in channels 0 y 1: " << AnB_Tcounter << std::endl;
@@ -229,10 +267,9 @@ int main(int argc,char *argv[]) {
   std::cout<< "Total coincidendes in channels 1 y 2: " << BnC_Tcounter << std::endl;
   std::cout<< "Total coincidendes in channels 0,1,2: " << AnBnC_Tcounter << std::endl;
   std::cout<< "Not in coincidence: " << nic_counter << std::endl;
+  std::cout<< "candidatos: " << candidatos_Tcount << std::endl;
 
   DataFile->Close();
 
   return 0;
 }
-
-  
