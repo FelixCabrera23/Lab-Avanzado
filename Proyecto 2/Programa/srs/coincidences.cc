@@ -25,6 +25,14 @@
 #include "TFile.h"
 #include "TTree.h"
 
+/* Para hacer histogramas */
+#include "TH1D.h"
+
+/* Para hacer las graficas */
+#include "TGraph.h"
+#include "TCanvas.h"
+
+
 /* Este programa toma como argumento el nombre del archivo .root donde se
  * encuentran los datos provenientes de Escaramujo */
 int main(int argc,char *argv[]) {
@@ -112,11 +120,11 @@ int main(int argc,char *argv[]) {
   /* kllCutCoin: límite inferior de coincidencias. No se toman en
    * cuenta pulsos cuya separación sea menor que este valor temporal
    * en nanosegundos. */
-  int kllCutCoin = 2;
+  int kllCutCoin = 4;
   /* kulCutCoin: límite superior de coincidencias. Si los pulsos
    * están separados mas de este tiempo, no se consideran coincidencias.
    * (valor en nanosegundos) */
-  int kulCutCoin = 4;
+  int kulCutCoin = 5;
 
   /* Variables para conteo de coincidencias
    *
@@ -148,6 +156,12 @@ int main(int argc,char *argv[]) {
 
   int candidatos = 0;
   int candidatos_Tcount = 0;
+
+  int tiempo = 0;
+
+  /***** HISTOGRAMA ******/
+
+  TH1D *aHist = new TH1D("Datos","Tiempo de decaimiento del muon",20,0,8500);
 
   /**************************************/
 
@@ -252,6 +266,12 @@ int main(int argc,char *argv[]) {
     if (coincidenceAC && !coincidenceACB){
 
       candidatos++;
+      if((RE0->size() > 0) && (RE1->size() > 0) && (RE2->size() > 0)){ // Este if ve si hay señal en los datos
+        if(fabs(RE0->at(0)-RE1->at(0)) > 75  ){  // Este if checa si ya pasaron más de 500 nano segundos
+          tiempo = fabs(RE0->at(0)-RE1->at(0));
+          aHist->Fill(tiempo);
+        }
+      }
 
     }
 
@@ -260,6 +280,24 @@ int main(int argc,char *argv[]) {
     /*************************************************************/
 
   } // aqui termina el for que cicla los eventos
+
+
+  /* Grafica */
+  TCanvas *ShowGraph = new TCanvas("Histo", "send send send", 600,400);
+
+  aHist->Draw();
+  ShowGraph->Update();
+
+  ShowGraph->SaveAs(("histo.pdf"),"pdf");
+
+  /* Archivo de ROOT */
+
+  TFile *aFile = new TFile(("histo.root"), "RECREATE");
+
+  aHist->Write(); // Escribe el archivo de root
+  aFile->Close();
+
+
 
   /* Se muestran los resultados */
   std::cout<< "Total coincidendes in channels 0 y 1: " << AnB_Tcounter << std::endl;

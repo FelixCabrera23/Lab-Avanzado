@@ -68,3 +68,7 @@ Para abrir archivos
 5 abril 2021
 
 Creando modificación para detectar 2 PULSOS
+
+9 abril 2021
+
+Se crearon los histogramas y se empezaron a buscar parametros adecuados
