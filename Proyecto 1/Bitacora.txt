@@ -72,3 +72,54 @@ Creando modificación para detectar 2 PULSOS
 9 abril 2021
 
 Se crearon los histogramas y se empezaron a buscar parametros adecuados
+
+14 abril
+
+Comando para generar histogramas
+
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Jul16.root histo1.pdf histo1.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/VidaMedia-Oct15.root histo2.pdf histo2.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/VidaMedia-Nov15.root histo3.pdf histo3.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Mar16.root histo4.pdf histo4.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-May16.root histo5.pdf histo5.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Jun16.root histo6.pdf histo6.root
+./coincidences.exe /home/walberto/Documentos/Datos_Lab/Proyecto_2/Datos/DC_ACB-Apr16.root histo7.pdf histo7.root
+hadd histo_sum.root histo*
+
+Resultados del fit con los parametros finales
+
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+ FCN=18.9447 FROM MIGRAD    STATUS=CONVERGED     106 CALLS         107 TOTAL
+                     EDM=2.02814e-07    STRATEGY= 1      ERROR MATRIX ACCURATE
+  EXT PARAMETER                                   STEP         FIRST
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE
+   1  A            2.79249e+02   1.25556e+01   1.67271e-02  -8.49372e-06
+   2  T            2.18136e+03   1.37064e+02   1.04676e-01   7.73271e-06
+   3  C            1.31402e-01   2.15711e+00   2.11074e-03   4.42240e-04
+
+****************************************
+Minimizer is Minuit / Migrad
+Chi2                      =      18.9447
+NDf                       =           17
+Edm                       =  1.04309e-07
+NCalls                    =           37
+A                         =      279.249   +/-   12.5554
+T                         =      2181.35   +/-   137.063
+C                         =     0.131277   +/-   2.1571
+
+Covariance Matrix:
+
+                           A           T           C
+A                     157.64     -1196.3      10.558
+T                    -1196.3       18786     -251.03
+C                     10.558     -251.03      4.6531
+
+Correlation Matrix:
+
+                           A           T           C
+A                          1    -0.69516     0.38983
+T                   -0.69516           1    -0.84907
+C                    0.38983    -0.84907           1
+Chi2/NDF: 1.11439
+T: 2181.35
+error en T: 137.063

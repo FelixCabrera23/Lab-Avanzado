@@ -161,7 +161,7 @@ int main(int argc,char *argv[]) {
 
   /***** HISTOGRAMA ******/
 
-  TH1D *aHist = new TH1D("Datos","Tiempo de decaimiento del muon",20,0,8500);
+  TH1D *aHist = new TH1D("Datos","Tiempo de decaimiento del muon",20,0,9000);
 
   /**************************************/
 
@@ -267,7 +267,7 @@ int main(int argc,char *argv[]) {
 
       candidatos++;
       if((RE0->size() > 0) && (RE1->size() > 0) && (RE2->size() > 0)){ // Este if ve si hay señal en los datos
-        if(fabs(RE0->at(0)-RE1->at(0)) > 75  ){  // Este if checa si ya pasaron más de 500 nano segundos
+        if(fabs(RE0->at(0)-RE1->at(0)) > 110  ){  // Este if checa si ya pasaron más de 500 nano segundos
           tiempo = fabs(RE0->at(0)-RE1->at(0));
           aHist->Fill(tiempo);
         }
@@ -283,16 +283,16 @@ int main(int argc,char *argv[]) {
 
 
   /* Grafica */
-  TCanvas *ShowGraph = new TCanvas("Histo", "send send send", 600,400);
-
-  aHist->Draw();
-  ShowGraph->Update();
-
-  ShowGraph->SaveAs(("histo.pdf"),"pdf");
+  // TCanvas *ShowGraph = new TCanvas("Histo", "send send send", 600,400);
+  //
+  // aHist->Draw();
+  // ShowGraph->Update();
+  //
+  // ShowGraph->SaveAs((argv[2]),"pdf");
 
   /* Archivo de ROOT */
 
-  TFile *aFile = new TFile(("histo.root"), "RECREATE");
+  TFile *aFile = new TFile((argv[3]), "RECREATE");
 
   aHist->Write(); // Escribe el archivo de root
   aFile->Close();
