@@ -123,3 +123,24 @@ C                    0.38983    -0.84907           1
 Chi2/NDF: 1.11439
 T: 2181.35
 error en T: 137.063
+
+
+15 abril 2021
+
+Tarea
+
+1) Cambair la geometria del target para que sea un cilindro solido
+
+2) Incluir un GetDeltaPosition ( en // colect energy)
+   En el archivo StepingAction en la linea 56
+   $ step->GetDeltaPosition
+
+
+
+19 abril 2021
+
+Proyecto Final:
+
+Simulación en Geant4 para determinar la eficiencia de un detecctor Geiger-Muller
+
+En vis.mac esta las formas para hacer las cosas de clores

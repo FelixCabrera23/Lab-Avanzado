@@ -1,0 +1,8 @@
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/install/strip.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/install/local.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/install.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/list_install_components.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/rebuild_cache.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/edit_cache.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/B1.dir
+/home/walberto/Documentos/Datos_Lab/Geant4/B1/build/CMakeFiles/exampleB1.dir
