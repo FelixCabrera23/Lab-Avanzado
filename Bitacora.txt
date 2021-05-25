@@ -144,3 +144,13 @@ Proyecto Final:
 Simulación en Geant4 para determinar la eficiencia de un detecctor Geiger-Muller
 
 En vis.mac esta las formas para hacer las cosas de clores
+
+1 Dibujar la geometria []
+  a) Disco             []
+  b) Cilindro de acero []
+  c) Cilindro de agua  []
+  d) Fuente            []
+
+2 Configurar la desaparición del electron []
+
+3 Configurar la recolección de datos []

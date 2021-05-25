@@ -6,11 +6,55 @@
 
 #IncludeRegexTransform: 
 
+../include/LA01ActionInitialization.hh
+G4VUserActionInitialization.hh
+../include/G4VUserActionInitialization.hh
+
 ../include/LA01DetectorConstruction.hh
 G4VUserDetectorConstruction.hh
 ../include/G4VUserDetectorConstruction.hh
 globals.hh
 ../include/globals.hh
+
+../include/LA01EventAction.hh
+G4UserEventAction.hh
+../include/G4UserEventAction.hh
+globals.hh
+../include/globals.hh
+
+../include/LA01PrimaryGeneratorAction.hh
+G4VUserPrimaryGeneratorAction.hh
+../include/G4VUserPrimaryGeneratorAction.hh
+G4ParticleGun.hh
+../include/G4ParticleGun.hh
+globals.hh
+../include/globals.hh
+
+../include/LA01RunAction.hh
+G4UserRunAction.hh
+../include/G4UserRunAction.hh
+G4Accumulable.hh
+../include/G4Accumulable.hh
+globals.hh
+../include/globals.hh
+
+../include/LA01SteppingAction.hh
+G4UserSteppingAction.hh
+../include/G4UserSteppingAction.hh
+globals.hh
+../include/globals.hh
+
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01ActionInitialization.cc
+LA01ActionInitialization.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01ActionInitialization.hh
+LA01PrimaryGeneratorAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01PrimaryGeneratorAction.hh
+LA01RunAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01RunAction.hh
+LA01EventAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01EventAction.hh
+LA01SteppingAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01SteppingAction.hh
 
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01DetectorConstruction.cc
 LA01DetectorConstruction.hh
@@ -37,6 +81,38 @@ G4SystemOfUnits.hh
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4SystemOfUnits.hh
 G4Tubs.hh
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4Tubs.hh
+
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01EventAction.cc
+LA01EventAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01EventAction.hh
+LA01RunAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01RunAction.hh
+G4Event.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4Event.hh
+G4RunManager.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4RunManager.hh
+
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01RunAction.cc
+LA01RunAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01RunAction.hh
+LA01PrimaryGeneratorAction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01PrimaryGeneratorAction.hh
+LA01DetectorConstruction.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/LA01DetectorConstruction.hh
+G4RunManager.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4RunManager.hh
+G4Run.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4Run.hh
+G4AccumulableManager.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4AccumulableManager.hh
+G4LogicalVolumeStore.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4LogicalVolumeStore.hh
+G4LogicalVolume.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4LogicalVolume.hh
+G4UnitsTable.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4UnitsTable.hh
+G4SystemOfUnits.hh
+/home/walberto/github/Lab-Avanzado/Proyecto Final/Ejemplos/LA01/src/G4SystemOfUnits.hh
 
 /opt/geant4.10.06.p03/include/Geant4/CLHEP/Geometry/BasicVector3D.h
 iosfwd
@@ -482,6 +558,32 @@ CLHEP/Vector/ThreeVector.icc
 cmath
 -
 
+/opt/geant4.10.06.p03/include/Geant4/G4Accumulable.hh
+G4VAccumulable.hh
+/opt/geant4.10.06.p03/include/Geant4/G4VAccumulable.hh
+G4MergeMode.hh
+/opt/geant4.10.06.p03/include/Geant4/G4MergeMode.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+G4Accumulable.icc
+/opt/geant4.10.06.p03/include/Geant4/G4Accumulable.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4Accumulable.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4AccumulableManager.hh
+G4Accumulable.hh
+/opt/geant4.10.06.p03/include/Geant4/G4Accumulable.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+map
+-
+vector
+-
+G4AccumulableManager.icc
+/opt/geant4.10.06.p03/include/Geant4/G4AccumulableManager.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4AccumulableManager.icc
+
 /opt/geant4.10.06.p03/include/Geant4/G4AffineTransform.hh
 G4Types.hh
 /opt/geant4.10.06.p03/include/Geant4/G4Types.hh
@@ -898,6 +1000,14 @@ G4LogicalVolume.icc
 
 /opt/geant4.10.06.p03/include/Geant4/G4LogicalVolume.icc
 
+/opt/geant4.10.06.p03/include/Geant4/G4LogicalVolumeStore.hh
+vector
+-
+G4LogicalVolume.hh
+/opt/geant4.10.06.p03/include/Geant4/G4LogicalVolume.hh
+G4VStoreNotifier.hh
+/opt/geant4.10.06.p03/include/Geant4/G4VStoreNotifier.hh
+
 /opt/geant4.10.06.p03/include/Geant4/G4LorentzVector.hh
 globals.hh
 /opt/geant4.10.06.p03/include/Geant4/globals.hh
@@ -958,6 +1068,14 @@ G4PhysicsOrderedFreeVector.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4MaterialTable.hh
 vector
+-
+
+/opt/geant4.10.06.p03/include/Geant4/G4MergeMode.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+functional
+-
+cmath
 -
 
 /opt/geant4.10.06.p03/include/Geant4/G4NavigationHistory.hh
@@ -1248,6 +1366,20 @@ G4ParticleDefinition.icc
 
 /opt/geant4.10.06.p03/include/Geant4/G4ParticleDefinition.icc
 
+/opt/geant4.10.06.p03/include/Geant4/G4ParticleGun.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+G4VPrimaryGenerator.hh
+/opt/geant4.10.06.p03/include/Geant4/G4VPrimaryGenerator.hh
+G4ThreeVector.hh
+/opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
+G4ParticleDefinition.hh
+/opt/geant4.10.06.p03/include/Geant4/G4ParticleDefinition.hh
+G4PrimaryVertex.hh
+/opt/geant4.10.06.p03/include/Geant4/G4PrimaryVertex.hh
+G4ParticleMomentum.hh
+/opt/geant4.10.06.p03/include/Geant4/G4ParticleMomentum.hh
+
 /opt/geant4.10.06.p03/include/Geant4/G4ParticleMomentum.hh
 G4ThreeVector.hh
 /opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
@@ -1492,6 +1624,12 @@ globals.hh
 G4ThreeVector.hh
 /opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
 CLHEP/Vector/Rotation.h
+-
+
+/opt/geant4.10.06.p03/include/Geant4/G4Run.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+vector
 -
 
 /opt/geant4.10.06.p03/include/Geant4/G4RunManager.hh
@@ -2032,6 +2170,24 @@ volumes/UnplacedTube.h
 G4Polyhedron.hh
 /opt/geant4.10.06.p03/include/Geant4/G4Polyhedron.hh
 
+/opt/geant4.10.06.p03/include/Geant4/G4UnitsTable.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+vector
+-
+G4ThreeVector.hh
+/opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
+G4UnitsTable.icc
+/opt/geant4.10.06.p03/include/Geant4/G4UnitsTable.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4UnitsTable.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4UserEventAction.hh
+
+/opt/geant4.10.06.p03/include/Geant4/G4UserRunAction.hh
+G4Types.hh
+/opt/geant4.10.06.p03/include/Geant4/G4Types.hh
+
 /opt/geant4.10.06.p03/include/Geant4/G4UserStackingAction.hh
 G4ClassificationOfNewTrack.hh
 /opt/geant4.10.06.p03/include/Geant4/G4ClassificationOfNewTrack.hh
@@ -2039,6 +2195,14 @@ G4ClassificationOfNewTrack.hh
 /opt/geant4.10.06.p03/include/Geant4/G4UserSteppingAction.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4UserTrackingAction.hh
+
+/opt/geant4.10.06.p03/include/Geant4/G4VAccumulable.hh
+globals.hh
+/opt/geant4.10.06.p03/include/Geant4/globals.hh
+G4VAccumulable.icc
+/opt/geant4.10.06.p03/include/Geant4/G4VAccumulable.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4VAccumulable.icc
 
 /opt/geant4.10.06.p03/include/Geant4/G4VDigiCollection.hh
 globals.hh
@@ -2071,6 +2235,8 @@ G4Transform3D.hh
 /opt/geant4.10.06.p03/include/Geant4/G4VHitsCollection.hh
 globals.hh
 /opt/geant4.10.06.p03/include/Geant4/globals.hh
+
+/opt/geant4.10.06.p03/include/Geant4/G4VNotifier.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4VPVParameterisation.hh
 G4Types.hh
@@ -2117,6 +2283,10 @@ G4VPhysicalVolume.icc
 /opt/geant4.10.06.p03/include/Geant4/G4VPhysicalVolume.icc
 
 /opt/geant4.10.06.p03/include/Geant4/G4VPhysicalVolume.icc
+
+/opt/geant4.10.06.p03/include/Geant4/G4VPrimaryGenerator.hh
+G4ThreeVector.hh
+/opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4VProcess.hh
 globals.hh
@@ -2174,6 +2344,10 @@ G4ForceCondition.hh
 G4GPILSelection.hh
 /opt/geant4.10.06.p03/include/Geant4/G4GPILSelection.hh
 
+/opt/geant4.10.06.p03/include/Geant4/G4VStoreNotifier.hh
+G4VNotifier.hh
+/opt/geant4.10.06.p03/include/Geant4/G4VNotifier.hh
+
 /opt/geant4.10.06.p03/include/Geant4/G4VTouchable.hh
 G4Types.hh
 /opt/geant4.10.06.p03/include/Geant4/G4Types.hh
@@ -2196,6 +2370,8 @@ map
 G4ThreeVector.hh
 /opt/geant4.10.06.p03/include/Geant4/G4ThreeVector.hh
 
+/opt/geant4.10.06.p03/include/Geant4/G4VUserActionInitialization.hh
+
 /opt/geant4.10.06.p03/include/Geant4/G4VUserDetectorConstruction.hh
 vector
 -
@@ -2203,6 +2379,8 @@ globals.hh
 /opt/geant4.10.06.p03/include/Geant4/globals.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4VUserEventInformation.hh
+
+/opt/geant4.10.06.p03/include/Geant4/G4VUserPrimaryGeneratorAction.hh
 
 /opt/geant4.10.06.p03/include/Geant4/G4VUserTrackInformation.hh
 globals.hh

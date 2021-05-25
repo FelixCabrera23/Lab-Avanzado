@@ -88,6 +88,9 @@ G4VPhysicalVolume* LA01DetectorConstruction::Construct()
 
   G4ThreeVector pos = G4ThreeVector(0, 0, 55*cm);
   G4Material* target_mat = nist->FindOrBuildMaterial("G4_Al");
+  // Añadimos una matriz de rotación
+  G4RotationMatrix *RotMat = new G4RotationMatrix();
+  RotMat -> rotateY(-90*deg);
   // ****** Caja *******
 
   // G4double target_sizeX = 20*cm;
@@ -118,7 +121,7 @@ G4VPhysicalVolume* LA01DetectorConstruction::Construct()
                          target_mat,          //its material
                          "Target");           //its name
 
-   new G4PVPlacement(0,                       //no rotation
+   new G4PVPlacement(RotMat,                       //no rotation
                      pos,                    //at position
                      logicTarget,             //its logical volume
                      "Target",                //its name
