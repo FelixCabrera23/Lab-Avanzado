@@ -61,7 +61,7 @@ void LA04RunAction::BeginOfRunAction(const G4Run*)
   analysisManager->OpenFile("LA04");
 
 // Creating histograms
-analysisManager->CreateH1("LA04","Deposited energy in target", 100, 100.*MeV, 1500.*MeV);
+analysisManager->CreateH1("LA04","Deposited energy in target", 100, 100.*keV, 1500.*keV);
 
 }
 

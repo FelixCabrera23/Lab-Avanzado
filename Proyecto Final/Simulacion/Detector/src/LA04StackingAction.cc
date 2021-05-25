@@ -43,12 +43,12 @@ LA04StackingAction::ClassifyNewTrack(const G4Track * aTrack)
 
     if( aTrack->GetParentID() > 0 )
     {
-        G4cout << "ID: "  << aTrack->GetTrackID()
-            << " Parent ID: " << aTrack->GetParentID()
-            << " Particle: " << aTrack->GetDefinition()->GetParticleName()
-            << " Creation process: " << aTrack->GetCreatorProcess()->GetProcessName()
-            << " Creation volumen: " << aTrack->GetVolume()->GetName()
-           << G4endl;
+        // G4cout << "ID: "  << aTrack->GetTrackID()
+        //     << " Parent ID: " << aTrack->GetParentID()
+        //     << " Particle: " << aTrack->GetDefinition()->GetParticleName()
+        //     << " Creation process: " << aTrack->GetCreatorProcess()->GetProcessName()
+        //     << " Creation volumen: " << aTrack->GetVolume()->GetName()
+        //    << G4endl;
     }
     // Hace falta trabajar con llos ID y los nombres para guardar la cantidad de electrones detectados.
 
