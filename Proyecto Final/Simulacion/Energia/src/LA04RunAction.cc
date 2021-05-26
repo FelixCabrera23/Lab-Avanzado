@@ -148,7 +148,7 @@ void LA04RunAction::EndOfRunAction(const G4Run* run)
      G4double particleEnergy = particleGun->GetParticleEnergy();
 
      std::ofstream file;
-     file.open("Eficiencia_geometrica.txt",std::ios::app),
+     file.open("Eficiencia_Energia.txt",std::ios::app),
      file << particleGun->GetParticleEnergy()<<","
      << G4BestUnit(particleEnergy,"Energy") <<","
      <<nofEvents << ","

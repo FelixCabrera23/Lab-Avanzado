@@ -41,7 +41,7 @@ G4ClassificationOfNewTrack
 LA04StackingAction::ClassifyNewTrack(const G4Track * aTrack)
 {
 
-    if( aTrack->GetParentID() > 0 )
+    if( aTrack->GetParentID() == 1 )
     {
         // G4cout << "ID: "  << aTrack->GetTrackID()
         //     << " Parent ID: " << aTrack->GetParentID()
@@ -54,7 +54,6 @@ LA04StackingAction::ClassifyNewTrack(const G4Track * aTrack)
         // Sumamos los Electrones
         if(aTrack->GetVolume()->GetName()=="Target")
         {
-          EventAction->AddElectron(1.0);
           if(aTrack->GetParticleDefinition()->GetParticleName()=="e-")
           {
             EventAction->AddElectron(1.0);
