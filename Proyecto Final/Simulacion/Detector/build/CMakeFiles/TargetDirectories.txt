@@ -1,3 +1,0 @@
-/home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/build/CMakeFiles/edit_cache.dir
-/home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/build/CMakeFiles/rebuild_cache.dir
-/home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/build/CMakeFiles/exampleLA04.exe.dir
