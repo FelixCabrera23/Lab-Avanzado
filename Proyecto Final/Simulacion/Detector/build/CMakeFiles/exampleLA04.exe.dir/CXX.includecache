@@ -41,6 +41,8 @@ LA04DetectorConstruction.hh
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/src/LA04DetectorConstruction.hh
 LA04Analysis.hh
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/src/LA04Analysis.hh
+fstream
+-
 G4RunManager.hh
 /home/walberto/github/Lab-Avanzado/Proyecto Final/Simulacion/Detector/src/G4RunManager.hh
 G4Run.hh

@@ -49,6 +49,17 @@ LA04StackingAction::ClassifyNewTrack(const G4Track * aTrack)
         //     << " Creation process: " << aTrack->GetCreatorProcess()->GetProcessName()
         //     << " Creation volumen: " << aTrack->GetVolume()->GetName()
         //    << G4endl;
+
+
+        // Sumamos los Electrones
+        if(aTrack->GetVolume()->GetName()=="Target")
+        {
+          if(aTrack->GetParticleDefinition()->GetParticleName()=="e-")
+          {
+            EventAction->AddElectron(1.0);
+            return fKill; // Esto es necesario para que solo cuente un electron
+          }
+        }
     }
     // Hace falta trabajar con llos ID y los nombres para guardar la cantidad de electrones detectados.
 

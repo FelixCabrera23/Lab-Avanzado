@@ -17,6 +17,8 @@
 #include "LA04Analysis.hh"
 // #include "LA04Run.hh"
 
+#include <fstream>
+
 #include "G4RunManager.hh"
 #include "G4Run.hh"
 #include "G4AccumulableManager.hh"
@@ -30,12 +32,14 @@
 LA04RunAction::LA04RunAction()
 : G4UserRunAction(),
   fEdep(0.),
-  fDistance(0.)
+  fDistance(0.),
+  fElectron(0.)
 {
   // Register accumulable to the accumulable manager
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fDistance);
+  accumulableManager->RegisterAccumulable(fElectron);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -61,7 +65,7 @@ void LA04RunAction::BeginOfRunAction(const G4Run*)
   analysisManager->OpenFile("LA04");
 
 // Creating histograms
-analysisManager->CreateH1("LA04","Deposited energy in target", 100, 100.*keV, 1500.*keV);
+analysisManager->CreateH1("LA04","Electrons detected", 100, 100.*keV, 1500.*keV);
 
 }
 
@@ -78,6 +82,8 @@ void LA04RunAction::EndOfRunAction(const G4Run* run)
 
   G4double edep  = fEdep.GetValue();
   G4double Distance  = fDistance.GetValue();
+  // Añadimos los conteos golbales de electrones
+  G4double Electrones = fElectron.GetValue();
 
   // Run conditions
   //  note: There is no primary generator action object for "master"
@@ -116,6 +122,8 @@ void LA04RunAction::EndOfRunAction(const G4Run* run)
      << G4BestUnit(edep,"Energy")
      << " Distance traveled per run, in scoring volume : "
      << G4BestUnit(Distance,"Length")
+     << "Electrons detected : "
+     << Electrones
      << G4endl
      << "------------------------------------------------------------"
      << G4endl
@@ -126,6 +134,18 @@ void LA04RunAction::EndOfRunAction(const G4Run* run)
      auto analysisManager = G4AnalysisManager::Instance();
      analysisManager->Write();
      analysisManager->CloseFile();
+
+     // Escribiendo a archivo
+
+     const G4ParticleGun* particleGun = generatorAction->GetParticleGun();
+     G4double particleEnergy = particleGun->GetParticleEnergy();
+
+     std::ofstream file;
+     file.open("Eficiencia_energia.txt",std::ios::app),
+     file << particleGun->GetParticleEnergy()<<","<< G4BestUnit(particleEnergy,"Energy") <<","<<nofEvents << "," << Electrones << std::endl;
+     file.close();
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -141,4 +161,10 @@ void LA04RunAction::AddEdep(G4double edep)
 void LA04RunAction::AddDistance(G4double distance)
 {
   fDistance  += distance;
+}
+
+// Agregamos la funcion para sumar electrones
+void LA04RunAction::AddElectron(G4double electron)
+{
+  fElectron += electron;
 }

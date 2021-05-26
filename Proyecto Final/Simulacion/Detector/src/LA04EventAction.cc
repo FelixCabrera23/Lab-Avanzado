@@ -1,13 +1,13 @@
-/* 
+/*
  * LA04EventAction.cc: Implementación para la clase
  * LA04EventAction.
- * 
+ *
  * Archivo de ejemplo de Geant4 para la unidad 3
  * del curso de Laboratorio Avanzado ECFM-USAC
- * 
+ *
  * Héctor Pérez
  * abril 2021
- * 
+ *
  * Basado en el ejemplo B1 de Geant4.10.06.p03
  */
 
@@ -24,7 +24,7 @@ LA04EventAction::LA04EventAction(LA04RunAction* runAction)
   fRunAction(runAction),
   fEdep(0.),
   fDistance(0.)
-{} 
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -34,18 +34,19 @@ LA04EventAction::~LA04EventAction()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void LA04EventAction::BeginOfEventAction(const G4Event*)
-{    
-  fEdep = 0.;   
+{
+  fEdep = 0.;
   fDistance = 0.;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void LA04EventAction::EndOfEventAction(const G4Event*)
-{   
+{
   // accumulate statistics in run action
   fRunAction->AddEdep(fEdep);
   fRunAction->AddDistance(fDistance);
+  fRunAction->AddElectron(fElectron);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

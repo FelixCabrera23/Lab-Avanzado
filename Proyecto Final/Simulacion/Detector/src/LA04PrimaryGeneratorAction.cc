@@ -91,11 +91,15 @@ void LA04PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   //
   // fParticleGun->SetParticleMomentumDirection(G4ThreeVector( std::sin(theta)*std::cos(phi), std::sin(theta)*std::sin(phi), std::cos(theta)));
 
-  // Dirección fija
+  // Dirección fija para Eficiencia en Energia y Energia aleatoria
 
   fParticleGun->SetParticlePosition(G4ThreeVector(0,0,1.));
 
   fParticleGun->GeneratePrimaryVertex(anEvent);
+
+  G4double RanEng = 100 + G4UniformRand()*1400;
+
+  fParticleGun->SetParticleEnergy(RanEng*keV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
