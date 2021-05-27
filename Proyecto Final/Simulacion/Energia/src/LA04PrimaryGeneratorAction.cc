@@ -71,27 +71,27 @@ void LA04PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   // G4double y0 = sizeXY * (G4UniformRand()-0.5);
   // G4double z0 = -55*cm;
 
-  // // Generando numeros aleatorios en un cilindro de radio 15 mm y altura 1 mm
-  // G4double r = 15*mm;
-  // G4double h = 1*mm;
-  // G4double ang = 360*(G4UniformRand());
-  //
-  // G4double x0 = r*std::cos(ang);
-  // G4double y0 = r*std::sin(ang);
-  // G4double z0 = h*(G4UniformRand() -0.5);
-  //
-  // fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
-  //
-  // /* Dirección aleatoria */
-  //
-  // G4double theta = twopi * G4UniformRand();
-  // G4double phi = pi * G4UniformRand();
-  //
-  // fParticleGun->SetParticleMomentumDirection(G4ThreeVector( std::sin(theta)*std::cos(phi), std::sin(theta)*std::sin(phi), std::cos(theta)));
+  // Generando numeros aleatorios en un cilindro de radio 15 mm y altura 1 mm
+  G4double r = 15*mm;
+  G4double h = 1*mm;
+  G4double ang = 360*(G4UniformRand());
+
+  G4double x0 = r*std::cos(ang);
+  G4double y0 = r*std::sin(ang);
+  G4double z0 = h*(G4UniformRand() -0.5);
+
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+
+  /* Dirección aleatoria */
+
+  G4double theta = twopi * G4UniformRand();
+  G4double phi = pi * G4UniformRand();
+
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector( std::sin(theta)*std::cos(phi), std::sin(theta)*std::sin(phi), std::cos(theta)));
 
   // Dirección fija para Eficiencia en Energia
-
-  fParticleGun->SetParticlePosition(G4ThreeVector(0,0,1.));
+  //
+  // fParticleGun->SetParticlePosition(G4ThreeVector(0,0,1.));
 
   // Dejar este descomentado si la energia no es aleatoria
   fParticleGun->GeneratePrimaryVertex(anEvent);
