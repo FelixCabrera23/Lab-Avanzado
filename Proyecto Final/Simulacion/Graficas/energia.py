@@ -11,7 +11,8 @@ Graficas de la eficiencia Detector de Cl2
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.mlab as mlab
+import scipy as sp
+import scipy.optimize 
 
 # Eficiencia Energetica
 
@@ -35,19 +36,19 @@ ax1 = fig1.add_subplot()
 
 l1 = ax1.plot(Eng,Elec,'-o')
 ax1.legend((l1),('Electrones detectados'),loc='upper right')
-ax1.set(xlabel=r'Energia [$MeV$]',ylabel=r'Electrones')
-plt.savefig('Electrones.pdf')
+ax1.set(xlabel=r'Energia [$MeV$]',ylabel=r'Electrones detectados $e^-$')
+# plt.savefig('Electrones.pdf')
 plt.show() 
-
 
 plt.clf()
 fig2 = plt.figure()
 ax2= fig2.add_subplot()
 
-l2 = ax2.plot(Eng,EnEff,'-o')
+l2 = ax2.plot(Eng,EnEff,'o')
+
 ax2.legend((l1),('Eficiencia'),loc='upper right')
-ax2.set(xlabel=r'Energia [$MeV$]',ylabel=r'Eficiencia')
-plt.savefig('Eficiencia_energetica.pdf')
+ax2.set(xlabel=r'Energia [$MeV$]',ylabel=r'Eficiencia $\varepsilon (E)$')
+# plt.savefig('Eficiencia_energetica.pdf')
 plt.show() 
 
 # Calculando eficiencia geometrica
@@ -84,11 +85,25 @@ ax3 = fig3.add_subplot()
 ax3.hist(GeoEff,bins,normed =1)
 ax3.plot(bins,y, '--')
 ax3.set(ylabel=r'Densidad de Probabilidad',xlabel=r'Eficiencia Geometrica $\varepsilon_g \times 10 ^ {-4}$')
-plt.savefig('Eficiencia_geometrica.pdf')
+# plt.savefig('Eficiencia_geometrica.pdf')
 
 plt.show()
 
+# Eficiencia total
 
+EffT = []
 
+for value in EnEff:
+    EffT.append(value*mu)
 
+plt.clf()
+fig4 = plt.figure()
+ax4= fig4.add_subplot()
+
+l5 = ax4.plot(Eng,EffT,'-o')
+
+ax4.legend((l1),('Eficiencia'),loc='upper right')
+ax4.set(xlabel=r'Energia [$MeV$]',ylabel=r'Eficiencia Total $\varepsilon _T (E) \times 10 ^ {-4}$')
+plt.savefig('Eficiencia_Total.pdf')
+plt.show() 
 
