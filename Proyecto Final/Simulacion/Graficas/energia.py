@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 Eng = [] # energia en MeV
 Even = [] # Numero de eventos
 Elec = [] # electrones detectados
-EnEff =[]
+EnEff =[] # Eficiencia de energia
 
 with open('Eficiencia_Energia.txt') as file1:
     for line in file1:
@@ -46,6 +46,27 @@ ax2.legend((l1),('Eficiencia'),loc='upper right')
 ax2.set(xlabel=r'Energia [$MeV$]',ylabel=r'Eficiencia')
 
 plt.show() 
+
+# Calculando eficiencia geometrica
+
+Even2 = []  # eventos de rayos gamma
+Gamma = []  # rayos gamma detectados
+GeoEff = [] # eficiencia en la geometria
+
+with open('Eficiencia_geometrica.txt') as file2:
+    for line in file2:
+        part = line.split(",")
+        Even2.append(float(part[2]))
+        Gamma.append(float(part[4]))
+        GeoEff.append(float(part[4])/float(part[2]))
+        
+plt.clf()
+
+fig3 = plt.figure()
+ax3 = fig3.add_subplot()
+ax3.hist(GeoEff,bins=20)
+
+plt.show()
 
 
 
